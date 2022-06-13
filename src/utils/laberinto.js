@@ -1,12 +1,23 @@
+// export const board = [ 
+//     1,1,1,0,1,1,1,1,
+//     1,0,0,0,1,0,1,0,
+//     1,1,1,0,0,0,1,1,
+//     1,0,0,0,1,0,1,1,
+//     1,1,1,1,1,0,1,1,
+//     1,0,0,0,0,0,0,1,
+//     1,1,1,1,0,1,1,1,
+//     1,1,1,1,0,1,1,1,
+// ]
+
 export const board = [ 
     1,1,1,0,1,1,1,1,
-    1,0,0,0,1,0,1,0,
-    1,1,1,0,0,0,1,1,
-    1,0,0,0,1,0,1,1,
-    1,1,1,1,1,0,1,1,
+    1,0,1,0,0,0,0,1,
+    1,0,1,0,1,1,0,1,
+    1,0,1,0,1,1,0,1,
     1,0,0,0,0,0,0,1,
-    1,1,1,1,0,1,1,1,
-    1,1,1,1,0,1,1,1,
+    1,1,1,0,1,1,1,1,
+    1,1,1,0,1,1,1,1,
+    1,1,1,0,1,1,1,1,
 ]
 
 // Calcular el tama;o del tablero
@@ -133,11 +144,11 @@ export const movePosition = (dataMoveBoard) => {
 
     // Si encuentra la salida
     if(exitAvaiblePosition.includes(entryPosition)){
-        console.log('La salida está en la posición', entryPosition)
+        console.log('Eso tilin ! La salida está en la posición', entryPosition)
         console.log('El camino para llegar a la salida es,', wayTraveled)
         return  {
             search : true,
-            resp : `La salida está en la posición ${ entryPosition }`,
+            resp : `Eso tilin! La salida está en la posición ${ entryPosition }`,
             data: {
                 exitPosition: entryPosition,
                 traveled: wayTraveled

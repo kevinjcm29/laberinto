@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, NotifyError, Table, Td } from './styles'
+import { Button, Container, ContainerFlex, NotifyError, Table, Td } from './styles'
 import { board, boardSize, movePosition, entryPosition } from './utils/laberinto'
 
 const App = () => {
@@ -39,16 +39,19 @@ const App = () => {
     
     if(respData.search){
       const traveled = respData.data.traveled
-      const newBoard = board.forEach( (value, index)=>{
-        if(traveled.includes(index)){
-          value = 2
+      const newBoard = []
+      for(let i = 0; i < board.length; i++){
+        if(traveled.includes(i)){
+          newBoard.push(i)
+        } else{
+          newBoard.push(board[i])
         }
-      } )
-      console.log('trave', traveled)
+      }
+      console.log(newBoard)
+      setBoardWin(formattedBoard(newBoard))
       setSearchExit(respData)
     }
   };
-
 
   const newFormattedBoard = formattedBoard(board)
 
@@ -80,7 +83,26 @@ const App = () => {
       {/* Imprimir este si se encuentra la salida */}
       {
         searchExit.search &&
-        <di>Hola mundo</di>
+        <>
+        { searchExit.resp  && <NotifyError search={true}>{searchExit.resp}</NotifyError>}
+        <ContainerFlex>
+          <img src='https://c.tenor.com/SjP7Hjzb7M0AAAAM/tilin-dancing.gif' alt='loading' width={300}></img>
+          <Table>
+            {
+              boardWin.map( row => (
+                <tr>
+                  {
+                    row.map( position => {
+                      return position === 1 ? <Td block={true}></Td> : <Td block={false}>{ position !== 0 && position !== 1 && position}</Td> 
+                    })
+                  }
+                </tr>
+              ) )
+            }
+          </Table>
+          <img src='https://c.tenor.com/SjP7Hjzb7M0AAAAM/tilin-dancing.gif' alt='loading' width={300}></img>
+        </ContainerFlex>
+        </>
       }
     </Container>
   );

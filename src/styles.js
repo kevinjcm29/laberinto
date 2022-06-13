@@ -15,7 +15,9 @@ export const Table = styled.table`
 `
 
 export const Td = styled.td`
-    padding: 1.5em;
+    width: 1.2em;
+    height: 1.2em;
+    padding: 1.2em;
     background-color: ${props => props.block && 'gray'};
     text-align: center;
     border: 1px solid black;
@@ -37,9 +39,14 @@ export const Button = styled.div`
 `
 
 export const NotifyError = styled.div`
-    background-color: red;
+    background-color: ${props => props.search ? 'green' : 'red'};
     padding: .7em;
     color: white;
     margin-bottom: 2em;
     font-family: 'Courier New', Courier, monospace;
+`
+
+export const ContainerFlex = styled.div`
+    display: flex;
+    gap: 2em;
 `
