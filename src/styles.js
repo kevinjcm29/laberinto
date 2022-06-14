@@ -35,10 +35,14 @@ export const Button = styled.div`
     border: 1px solid black;
     cursor: pointer;
     margin-bottom: 2em;
+    &:hover {
+        background-color: #c5bf57;
+        color:white;
+  }
 
 `
 
-export const NotifyError = styled.div`
+export const Notify = styled.div`
     background-color: ${props => props.search ? 'green' : 'red'};
     padding: .7em;
     color: white;
