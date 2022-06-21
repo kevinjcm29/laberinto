@@ -14,7 +14,6 @@ const App = () => {
     },
   });
 
-  // Formatea el tablero para poder imprimir en filas
   const formattedBoard = (board) => {
     const newBoard = [];
     for (let i = 0; i < board.length; i += 8) {
@@ -45,13 +44,11 @@ const App = () => {
 
     const respData = movePosition(data);
 
-    // Si no encuentra salida.
     if(!respData.search){
       setSearchExit({ ...searchExit, resp: respData.resp, search: false });
     }
 
 
-    // Si encuentra una salida
     if (respData.search) {
       const traveled = respData.data.traveled;
       const newBoard = [];

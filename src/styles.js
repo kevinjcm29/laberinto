@@ -43,9 +43,9 @@ export const Button = styled.div`
 `
 
 export const Notify = styled.div`
-    background-color: ${props => props.search ? 'green' : 'red'};
-    padding: .7em;
-    color: white;
+    background-color: ${props => props.search ? '#f2f2f2' : 'red'};
+    padding: .5em;
+    color: black;
     margin-bottom: 2em;
     font-family: 'Courier New', Courier, monospace;
 `
